@@ -1,0 +1,30 @@
+group 'com.itsonlybinary'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+defaultTasks 'build'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'SpongeBungee',
+                'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'Sonatype'
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+
+    maven {
+        name = 'Sponge'
+        url = 'http://repo.spongepowered.org/maven'
+    }
+}
+
+dependencies {
+    compile "org.spongepowered:spongeapi:2.1-SNAPSHOT"
+}
